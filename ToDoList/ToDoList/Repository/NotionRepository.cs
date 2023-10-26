@@ -54,7 +54,7 @@ public class NotionRepository : INotionRepository
         T? entity = await _db.Notions
             .AsNoTracking()
             .Where(x => !x.IsDeleted
-            && id == x.Id)
+                        && id == x.Id)
             .Select(x => _mapper.Map<T>(x))
             .FirstOrDefaultAsync();
 
